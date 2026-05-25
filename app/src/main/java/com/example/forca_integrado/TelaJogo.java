@@ -59,18 +59,18 @@ public class TelaJogo extends AppCompatActivity implements View.OnClickListener 
         listaImagens.add(R.drawable.forca_11_9);
 
         listaPalavras =  new ArrayList<String>();
-        listaPalavras.add("CAIXA");
-        listaPalavras.add("BOLA");
-        listaPalavras.add("TOMATE");
-        listaPalavras.add("ABACAXI");
-        listaPalavras.add("CARRETA");
-        listaPalavras.add("ELEFANTE");
         listaPalavras.add("MACACO");
+        listaPalavras.add("BALA");
+        listaPalavras.add("ABACAXI");
+        listaPalavras.add("MARTELO");
+        listaPalavras.add("PENTE");
+        listaPalavras.add("ELEFANTE");
+        listaPalavras.add("MAMUTE");
         listaPalavras.add("MELANCIA");
         listaPalavras.add("ASFALTO");
-        listaPalavras.add("FORMULA");
-        listaPalavras.add("TREMEMBE");
-        listaPalavras.add("ESCOLA");
+        listaPalavras.add("JABUTICABA");
+        listaPalavras.add("CRIME");
+        listaPalavras.add("COMPUTADOR");
         listaPalavras.add("UNIVERSIDADE");
 
         texto = findViewById(R.id.textView3);
@@ -139,8 +139,8 @@ public class TelaJogo extends AppCompatActivity implements View.OnClickListener 
         //se o verifica estiver false, siginifica que ganhou
         if(!verifica){
             AlertDialog.Builder caixa = new AlertDialog.Builder(this);
-            caixa.setTitle("Você Venceu!!!!!!");
-            caixa.setMessage("Deseja jogar novamente?");
+            caixa.setTitle("Você ficou com o pescoço intacto! :D");
+            caixa.setMessage("Deseja arriscar novamente?");
             caixa.setPositiveButton("Jogar", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialogInterface, int i) {
@@ -152,8 +152,8 @@ public class TelaJogo extends AppCompatActivity implements View.OnClickListener 
         if(contaErro >= listaImagens.size())
         {
             AlertDialog.Builder caixa = new AlertDialog.Builder(this);
-            caixa.setTitle("Você Perdeu Playboy!!!!!!");
-            caixa.setMessage("Deseja jogar novamente?");
+            caixa.setTitle("Você morreu enforcado! :(");
+            caixa.setMessage("Deseja arriscar novamente?");
             caixa.setPositiveButton("Jogar", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialogInterface, int i) {
