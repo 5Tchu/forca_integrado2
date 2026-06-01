@@ -1,6 +1,7 @@
 package com.example.forca_integrado;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -74,8 +75,10 @@ public class TelaCadastro extends AppCompatActivity implements View.OnClickListe
                 {
                     //aqui pode salvar no BD
                     Palavra palavra1 = new Palavra();
-                    palavra1.setPalavradigitada(texto);
+                    palavra1.setPalavraDigitada(texto);
                     bd.salvarPalavra(palavra1);
+                    textoDaPalavra.setText("");
+                    Toast.makeText(this, "Salvo", Toast.LENGTH_SHORT).show();
                 }
 
 
@@ -84,11 +87,9 @@ public class TelaCadastro extends AppCompatActivity implements View.OnClickListe
 
 
         if(view == btnListar){
+            startActivity(new Intent(this, TelaRecycler.class));
 
         }
-
-
-
 
     }
 

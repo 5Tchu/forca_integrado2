@@ -4,11 +4,11 @@ public class Palavra {
     private String palavradigitada, categoria;
 
 
-    public String getPalavradigitada() {
+    public String getPalavraDigitada() {
         return palavradigitada;
     }
 
-    public void setPalavradigitada(String palavradigitada) {
+    public void setPalavraDigitada(String palavradigitada) {
         this.palavradigitada = palavradigitada;
     }
 

@@ -36,7 +36,7 @@ public class BD extends SQLiteOpenHelper {
         SQLiteDatabase db = getWritableDatabase();
         ContentValues valores = new ContentValues();
         valores.put("categoria", p.getCategoria());
-        valores.put("palavra", p.getPalavradigitada());
+        valores.put("palavra", p.getPalavraDigitada());
         db.insert("tabelaPalavra", null, valores);
         db.close();
     }
@@ -50,7 +50,7 @@ public class BD extends SQLiteOpenHelper {
             String palavra = cursor.getString(cursor.getColumnIndexOrThrow("palavra"));
             String categoria = cursor.getString(cursor.getColumnIndexOrThrow("categoria"));
             Palavra p = new Palavra();
-            p.setPalavradigitada(palavra);
+            p.setPalavraDigitada(palavra);
             p.setCategoria(categoria);
             lista.add(p);
 
