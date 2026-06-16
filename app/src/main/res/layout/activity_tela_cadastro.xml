@@ -67,7 +67,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
-                android:text="Esporte"
+                android:text="Objeto"
                 android:textColor="#0B0A0A"
                 android:textSize="20sp" />
 
@@ -85,7 +85,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
-                android:text="Estado"
+                android:text="Cor"
                 android:textColor="#0B0A0A"
                 android:textSize="20sp" />
 
@@ -94,7 +94,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
-                android:text="Cidade"
+                android:text="Aleatório"
                 android:textColor="#0B0A0A"
                 android:textSize="20sp" />
 

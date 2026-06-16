@@ -1,8 +1,7 @@
 package com.example.forca_integrado;
 
 public class Palavra {
-    private String palavradigitada, categoria;
-
+    private String palavradigitada, Categoria, Dica, Nivel;
 
     public String getPalavraDigitada() {
         return palavradigitada;
@@ -13,10 +12,17 @@ public class Palavra {
     }
 
     public String getCategoria() {
-        return categoria;
+        return Categoria;
     }
 
-    public void setCategoria(String categoria) {
-        this.categoria = categoria;
+    public void setCategoria(String categoria) { Categoria = categoria;}
+
+    public String getDica() { return Dica;}
+
+    public void setDica(String dica) { Dica = dica; }
+
+    public String getNivel() { return Nivel;}
+
+    public void setNivel(String nivel) { Nivel = nivel; }
     }
-}
+

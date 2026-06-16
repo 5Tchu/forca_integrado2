@@ -19,12 +19,11 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class TelaCadastro extends AppCompatActivity implements View.OnClickListener,RadioGroup.OnCheckedChangeListener {
 
-    private EditText textoDaPalavra;
+    private EditText textoDaPalavra, textoDaDica;
     private Button btnCadastrar, btnListar;
     private RadioGroup grupo;
-
-    private BD bd;
     private String categoriaSelecionada, palavra;
+    private BD bd;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -52,6 +51,23 @@ public class TelaCadastro extends AppCompatActivity implements View.OnClickListe
     public void onClick(View view) {
         if(view == btnCadastrar){
             String texto = textoDaPalavra.getText().toString();
+            int conta = texto.length();
+            String nivel;
+            if(conta <= 4){
+                nivel = "FACIL";
+            }
+            if(conta <= 7){
+                nivel = "MEDIO";
+            }
+            else {
+                nivel = "DIFICIL";
+            }
+
+            String dica = textoDaDica.getText().toString();
+            boolean temDica = false;
+            if (dica != null) {
+                temDica = true;
+            }
 
             boolean temTextoDigitado = false;
             if(texto.isEmpty()) {
@@ -65,19 +81,23 @@ public class TelaCadastro extends AppCompatActivity implements View.OnClickListe
                 RadioButton r2 = findViewById(R.id.radioButton3);
                 RadioButton r3 = findViewById(R.id.radioButton4);
                 RadioButton r4 = findViewById(R.id.radioButton5);
+
                 boolean temRadioChecado = false;
                 if(r.isChecked() || r1.isChecked() || r2.isChecked() || r3.isChecked() || r4.isChecked()){
                     temRadioChecado = true;
             }else{
                     Toast.makeText(this, "Faltou marcar categoria", Toast.LENGTH_SHORT).show();
                 }
-                if(temTextoDigitado && temRadioChecado)
-                {
+                if(temTextoDigitado && temRadioChecado && temDica) {
                     //aqui pode salvar no BD
                     Palavra palavra1 = new Palavra();
                     palavra1.setPalavraDigitada(texto);
+                    palavra1.setDica(dica);
+                    palavra1.setCategoria(categoriaSelecionada);
+                    palavra1.setNivel(nivel);
                     bd.salvarPalavra(palavra1);
                     textoDaPalavra.setText("");
+                    textoDaDica.setText("");
                     Toast.makeText(this, "Salvo", Toast.LENGTH_SHORT).show();
                 }
 
@@ -97,6 +117,7 @@ public class TelaCadastro extends AppCompatActivity implements View.OnClickListe
     public void onCheckedChanged(@NonNull RadioGroup radioGroup, int i) {
         if(radioGroup == grupo){
             RadioButton temporario = findViewById(i);
+            categoriaSelecionada = temporario.getText().toString();
             Toast.makeText(TelaCadastro.this, temporario.getText().toString(),
                     Toast.LENGTH_SHORT).show();
         }

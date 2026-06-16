@@ -27,7 +27,7 @@ public class TelaJogo extends AppCompatActivity implements View.OnClickListener 
     private String palavra;
     private char[] estado;
 
-    private Button b1;
+    private Button b1, btDica;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -42,6 +42,7 @@ public class TelaJogo extends AppCompatActivity implements View.OnClickListener 
         });
         imagem = findViewById(R.id.imageView2);
         txAcerto = findViewById(R.id.txAcerto);
+        btDica = findViewById(R.id.Dica);
         txErro = findViewById(R.id.txErro);
         contaAcerto = 0;
         contaErro = 0;
@@ -175,6 +176,9 @@ public class TelaJogo extends AppCompatActivity implements View.OnClickListener 
         if(!status){
             atualizaForca();
             contaErro++;
+            if (contaErro>=2) {
+                btDica.setVisibility(VISIBLE);
+            }
             txErro.setText(Integer.toString(contaErro)+"/"+Integer.toString(listaImagens.size()));
         }
         else {
